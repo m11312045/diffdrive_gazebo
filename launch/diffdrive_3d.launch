@@ -1,0 +1,22 @@
+<launch>
+  <!-- 啟用 Gazebo -->
+  <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused"     value="false"/>
+    <arg name="use_sim_time" value="true"/> -->
+    <!-- <arg name="world_name" value="$(find diffdrive_gazebo)/worlds/small_house.world"/> -->
+    <!-- <arg name="world_name" value="$(find aws_robomaker_small_house_world)/worlds/small_house.world"/> -->
+    <!-- <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_world.world"/> -->
+    <!-- <arg name="world_name" value="$(find dynamic_logistics_warehouse)/launch/logistics_warehouse.launch"/> -->
+  <!-- </include> -->
+   <include file="$(find dynamic_logistics_warehouse)/launch/logistics_warehouse.launch"/>
+  <!-- 載入 XACRO 模型 -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find diffdrive_gazebo)/urdf/car-robot-xacro.urdf'"/>
+
+  <!-- 啟動 robot_state_publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rsp">
+    <param name="use_sim_time" value="true"/>
+  </node>
+
+  <!-- Spawn the model -->
+  <node name="urdf_spawer" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot_model -param robot_description -z 1.0" />
+</launch>
