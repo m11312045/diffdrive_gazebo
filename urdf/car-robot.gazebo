@@ -69,9 +69,9 @@
     <!-- Robot frame to calculate odometry from, defaults to 'base_link' -->
     <robotBaseFrame>base_link</robotBaseFrame>
     <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-    <broadcastTF>true</broadcastTF>
+    <broadcastTF>false</broadcastTF>
     <!-- Set to true to publish transforms for the odometry, defaults to true -->
-    <publishOdom>true</publishOdom>
+    <publishOdom>false</publishOdom>
     <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
     <!-- <publishWheelJointState>true</publishWheelJointState> -->
     <!-- This part is required by Gazebo -->
