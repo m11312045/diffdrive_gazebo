@@ -3,13 +3,13 @@
   <env name="GAZEBO_MODEL_PATH"   value="$(find dynamic_logistics_warehouse)/models:$(optenv GAZEBO_MODEL_PATH)"/>
   <env name="GAZEBO_RESOURCE_PATH" value="$(find dynamic_logistics_warehouse):$(optenv GAZEBO_RESOURCE_PATH)"/>
 
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find dynamic_logistics_warehouse)/worlds/warehouse.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
-  </include>
+  </include> -->
 
-  <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find aws_robomaker_small_warehouse_world)/worlds/small_warehouse.world"/>
     <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
@@ -17,7 +17,7 @@
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
     <arg name="verbose" default="true"/>
-  </include> -->
+  </include>
 
   <!-- 載入 XACRO 模型 -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find diffdrive_gazebo)/urdf/robot_diffdrive.xacro'"/>
